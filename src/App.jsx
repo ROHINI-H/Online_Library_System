@@ -1,9 +1,15 @@
-import Home from "./Components/Home";
+import Header from "./Components/Header";
+import { Outlet } from "react-router-dom"
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 function App() {
   return (
     <>
-      <Home />
+      <Provider store={store}>
+        <Header />
+        <Outlet />
+      </Provider>
     </>
   )
 }
