@@ -1,4 +1,4 @@
-# 📚 Online Library System App using React + Vite
+# 📚 Online Library System App using React + Redux
 
 A React + Redux-powered online library where users can browse, search, and add books. Styled with Tailwind CSS for a clean, responsive UI.
 
