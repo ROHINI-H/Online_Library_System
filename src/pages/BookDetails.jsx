@@ -7,19 +7,18 @@ function BookDetails() {
     const book = useSelector((state) => state.books.items.find((book) => book.id == id));
 
     if (!book) {
-        return <p>Book not found</p>
+        return <p className="p-7">Book not found</p>
     }
 
     return (
-        <div>
-            <h2>{book.title}</h2>
-            <p>by {book.author}</p>
-            <p>{book.description}</p>
-            <p>Category: {book.category}</p>
-            <img src={book.coverImage} alt="" width="200px" />
-            <p>Rating: {book.rating || 'N/A'}</p>
-            <p>Published Date: {book.publishedDate}</p>
-            <button onClick={() => navigate(-1)}>Back to Browse</button>
+        <div className="p-7">
+            <h2 className="text-2xl font-bold">{book.title}</h2>
+            <p className="text-lg mb-2">by {book.author}</p>
+            <p className="mb-2">{book.description}</p>
+            <p className="mb-2">Category: {book.category}</p>
+            <p className="mb-2">Rating: {book.rating || 'N/A'}</p>
+            <p className="mb-2">Published Date: {book.publishedDate}</p>
+            <button onClick={() => navigate(-1)} className="text-blue-500 hover:underline">← Back to Browse</button>
         </div>
     )
 }

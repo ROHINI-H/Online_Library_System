@@ -9,14 +9,14 @@ function BrowseBooks() {
     const [searchText, setSearchText] = useState('');
 
     const filtered = books.filter((book) => !category || book.category == category)
-        .filter((book) => book.title.toLowerCase().includes(searchText.toLowerCase()) || book.author.toLowerCase());
+        .filter((book) => book.title.toLowerCase().includes(searchText.toLowerCase()) || book.author.toLowerCase().includes(searchText.toLowerCase()));
 
 
     return (
-        <div>
-            <h2>{category ? `${category} Books` : `All Books`}</h2>
-            <input className="border m-4 p-1.5" type="text" placeholder="Search by title or author" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-            <div>
+        <div className="p-7">
+            <h2 className="text-xl font-bold">{category ? `${category} Books` : `All Books`}</h2>
+            <input className="w-full border my-4 p-1.5" type="text" placeholder="Search by title or author" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {filtered.map((book) => (
                     <BookCard key={book.id} book={book} />
                 ))}
