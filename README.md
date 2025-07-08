@@ -44,19 +44,19 @@ src/
 
 ## 📷 Screenshot
 Home Page
-![image](https://github.com/user-attachments/assets/5b474433-b9a4-4b33-a949-751d7f4b6671)
+![image](https://github.com/user-attachments/assets/ed48b072-2895-4c88-9481-7110163af64f)
 
 Browse Books page
-![image](https://github.com/user-attachments/assets/62d3a029-8ac9-41d7-90a0-8903fa51b206)
+![image](https://github.com/user-attachments/assets/e9682894-fb29-43d3-97e2-91d2560c034a)
 
 Add books page
-![image](https://github.com/user-attachments/assets/5c358a44-adb3-4bb6-8542-770f471806f6)
+![image](https://github.com/user-attachments/assets/c03221c1-92e9-4c93-85a1-e4f31a7dc6e2)
 
 View details page
 ![image](https://github.com/user-attachments/assets/5ced2239-31de-4f3b-a27f-0863ddfc82f1)
 
 Browse category books Page
-![image](https://github.com/user-attachments/assets/cd32153a-ef18-4738-9a31-836956281fda)
+![image](https://github.com/user-attachments/assets/e5616217-188a-4eec-946c-990c2bf3de42)
 
 Page not found
 ![image](https://github.com/user-attachments/assets/e4141031-e266-4722-86af-d99c3f34ff5d)
