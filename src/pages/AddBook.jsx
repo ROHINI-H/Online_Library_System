@@ -7,14 +7,18 @@ function AddBook() {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
-    const [image, setImage] = useState('');
+    const [coverImage, setCoverImage] = useState('');
     const [category, setCategory] = useState('Fiction');
     const [rating, setRating] = useState('');
+    const [publishedDate, setPublishedDate] = useState('');
     const [popular, setPopular] = useState(false);
     const [errors, setErrors] = useState({});
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    // setting the sample image if not uploaded by user
+    const defaultImage = "https://images.unsplash.com/photo-1739994885725-0a772884d66c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FtcGxlJTIwYm9vayUyMGNvdmVyfGVufDB8fDB8fHwy";
 
     // Handles the error message inline
     function validate() {
@@ -28,12 +32,16 @@ function AddBook() {
     // Handles the data after submitting the form 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors(validate());
+
+        const errors = validate();
+        setErrors(errors);
 
         //checks for error. If there is error, then stops the form submission
-        if (Object.keys(validate().length > 0)) return;
+        if (Object.keys(errors).length > 0) return;
 
-        dispatch(addBook({ title, author, description, category, rating, popular }));
+        const finalImage = coverImage.trim() != '' ? coverImage : defaultImage;
+
+        dispatch(addBook({ title, author, coverImage: finalImage, description, category, rating, popular, publishedDate, }));
         navigate('/books');
     }
 
@@ -48,7 +56,7 @@ function AddBook() {
                 <input className="w-full border p-1.5" type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} />
                 {errors.author && <p className="text-red-600 text-sm">{errors.author}</p>}
             </div>
-            <input className="w-full border p-1.5" type="image" placeholder="Image" value={image} onChange={(e) => setImage(e.target.value)} />
+            <input type="text" className="w-full border p-1.5" placeholder="Image URL (optional)" value={coverImage} onChange={(e) => setCoverImage(e.target.value)} />
             <textarea className="w-full border p-1.5" type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
             <select className="w-full border p-1.5" value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option>Self-Help</option>
@@ -60,8 +68,12 @@ function AddBook() {
                 <input className="w-full border p-1.5" type="number" placeholder="Rating (1-5)" value={rating} onChange={(e) => setRating(e.target.value)} />
                 {errors.rating && <p className="text-red-600 text-sm">{errors.rating}</p>}
             </div>
+            <div className="flex items-center gap-4">
+                <label className="w-2/9">Published Date: </label>
+                <input className="w-7/9 border p-1.5" type="date" value={publishedDate} onChange={(e) => setPublishedDate(e.target.value)} />
+            </div>
             <label className="flex items-center space-x-1.5">
-                <input type="checkbox" checked={popular} onChange={(e) => setPopular(e.target.value)} />
+                <input type="checkbox" checked={popular} onChange={(e) => setPopular(e.target.checked)} />
                 <span>Mark as Popular</span>
             </label>
             <button type="submit" className="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-800">Add Book</button>
