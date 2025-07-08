@@ -7,6 +7,7 @@ function AddBook() {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [description, setDescription] = useState('');
+    const [image, setImage] = useState('');
     const [category, setCategory] = useState('Fiction');
     const [rating, setRating] = useState('');
     const [popular, setPopular] = useState(false);
@@ -47,7 +48,7 @@ function AddBook() {
                 <input className="w-full border p-1.5" type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} />
                 {errors.author && <p className="text-red-600 text-sm">{errors.author}</p>}
             </div>
-
+            <input className="w-full border p-1.5" type="image" placeholder="Image" value={image} onChange={(e) => setImage(e.target.value)} />
             <textarea className="w-full border p-1.5" type="text" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
             <select className="w-full border p-1.5" value={category} onChange={(e) => setCategory(e.target.value)}>
                 <option>Self-Help</option>

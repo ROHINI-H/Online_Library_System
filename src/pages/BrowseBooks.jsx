@@ -16,7 +16,7 @@ function BrowseBooks() {
         <div className="p-7">
             <h2 className="text-xl font-bold">{category ? `${category} Books` : `All Books`}</h2>
             <input className="w-full border my-4 p-1.5" type="text" placeholder="Search by title or author" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
                 {filtered.map((book) => (
                     <BookCard key={book.id} book={book} />
                 ))}
